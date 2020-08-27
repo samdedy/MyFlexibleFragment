@@ -14,10 +14,10 @@ import android.widget.Button;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link HomeFragment#newInstance} factory method to
+ * Use the {@link CategoryFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends Fragment implements View.OnClickListener {
+public class CategoryFragment extends Fragment implements View.OnClickListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -28,7 +28,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private String mParam1;
     private String mParam2;
 
-    public HomeFragment() {
+    public CategoryFragment() {
         // Required empty public constructor
     }
 
@@ -38,11 +38,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment HomeFragment.
+     * @return A new instance of fragment CategoryFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static HomeFragment newInstance(String param1, String param2) {
-        HomeFragment fragment = new HomeFragment();
+    public static CategoryFragment newInstance(String param1, String param2) {
+        CategoryFragment fragment = new CategoryFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -63,28 +63,20 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        return inflater.inflate(R.layout.fragment_category, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Button btnCategory = view.findViewById(R.id.btnCategory);
-        btnCategory.setOnClickListener(this);
+        Button btnDetailCategory = view.findViewById(R.id.btnDetailCategory);
+        btnDetailCategory.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.btnCategory){
-            CategoryFragment mCategoryFragment = new CategoryFragment();
-            FragmentManager mFragmentManager = getFragmentManager();
-            if (mFragmentManager != null){
-                mFragmentManager
-                        .beginTransaction()
-                        .replace(R.id.frame_container, mCategoryFragment, CategoryFragment.class.getSimpleName())
-                        .addToBackStack(null)
-                        .commit();
-            }
+        if (view.getId() == R.id.btnDetailCategory){
+
         }
     }
 }
